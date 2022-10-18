@@ -66,7 +66,7 @@ object FileUtils {
     fun downLoadFile(context: Context, downloadUrl: String, callback: DownloadCallback) {
         var filename = downloadUrl.substring(downloadUrl.lastIndexOf('/') + 1, downloadUrl.indexOf('?'))
         var saveFile =
-            File(FileUtils.getDir(context).toString() + File.separator + filename)
+            File(FileUtils.getDir(context).toString() + File.separator + filename + ".txt")
         //如果文件存在 不再下载 直接读取展示
         if (saveFile.exists()) {
             callback.onFinish(saveFile)
