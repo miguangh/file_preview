@@ -84,8 +84,9 @@ object FileUtils {
                 connection?.readTimeout = 10 * 1000;
                 connection?.connect();
                 //储存文件
+                var filename = downloadUrl.substring(downloadUrl.lastIndexOf('/') + 1, downloadUrl.indexOf('?'))
                 saveFile =
-                    File("${getDir(context)}${File.separator}${downloadUrl.hashCode()}${connection?.fileExt()}")
+                    File("${getDir(context)}${File.separator}${filename}.${downloadUrl.split("file_type=")[1]}")
                 Log.e("saveFile===+>","$saveFile")
                 //如果文件已存在 不再下载 直接读取展示
                 if (saveFile!!.exists()) {
